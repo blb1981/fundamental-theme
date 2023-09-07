@@ -1,0 +1,214 @@
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;700&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+// My variables
+$funTransition: 0.2s ease;
+
+// BS variables
+$primary: #153f52;
+
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$headings-font-family: 'Inter', sans-serif;
+$headings-font-weight: 700;
+
+$display-font-family: 'Inter', serif;
+$display-font-weight: 200;
+
+$line-height-base: 1.75;
+$line-height-sm: 1.75;
+$line-height-lg: 2;
+
+// Import Bootstrap
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+
+  ul {
+    list-style: none;
+  }
+
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.fun- {
+  &header-nav {
+    height: 3.5rem;
+
+    ul {
+      list-style: none;
+
+      a:link,
+      a:active,
+      a:visited {
+        color: $white;
+        padding: 1rem 2rem;
+        display: block;
+        text-decoration: none;
+        transition: $funTransition;
+
+        &:hover {
+          background-color: $white;
+          color: $primary;
+
+          .sub-menu {
+            display: flex;
+            z-index: 1;
+          }
+        }
+      }
+
+      li {
+        position: relative;
+        z-index: 1;
+
+        .sub-menu {
+          a {
+            border-bottom: 1px solid $gray-500;
+          }
+        }
+
+        &:hover {
+          .sub-menu {
+            display: flex;
+          }
+        }
+      }
+
+      .sub-menu {
+        background-color: $primary;
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        min-width: 20rem;
+      }
+    }
+  }
+
+  &mobile-toggler {
+    font-size: 2rem;
+
+    i {
+      cursor: pointer;
+      padding: 0 1rem;
+    }
+  }
+
+  &snippet {
+    h2 a {
+      &:link,
+      &:visited,
+      &:active {
+        text-decoration: underline solid transparent;
+        transition: $funTransition;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+  }
+
+  &featured-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  @media screen and (min-width: 992px) {
+    &featured-image {
+      max-height: inherit;
+    }
+  }
+
+  &overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: rgba($primary, 0.95);
+    overflow-y: hidden;
+    transition: $funTransition;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      padding: 8px;
+      text-decoration: none;
+      font-size: 1.25rem;
+      color: $white;
+      display: block;
+      transition: $funTransition;
+    }
+
+    a:hover,
+    a:focus {
+      color: $secondary;
+    }
+
+    .closebtn {
+      position: absolute;
+      top: 2rem;
+      right: 45px;
+      font-size: 2rem;
+    }
+  }
+
+  &overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+    padding-left: 2rem;
+  }
+
+  @media screen and (max-height: 450px) {
+    &overlay {
+      overflow-y: auto;
+
+      a {
+        font-size: 2rem;
+      }
+
+      .closebtn {
+        font-size: 3rem;
+        top: 2rem;
+        right: 35px;
+        padding: 0 2rem;
+      }
+    }
+  }
+}

@@ -18,6 +18,14 @@ $line-height-base: 1.75;
 $line-height-sm: 1.75;
 $line-height-lg: 2;
 
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1200px,
+);
+
 // Import Bootstrap
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
@@ -48,20 +56,35 @@ footer {
     margin: 0;
     padding: 0;
   }
+
+  .menu-item {
+    a {
+      color: $white;
+    }
+  }
+}
+
+table {
+  margin-bottom: 2rem;
 }
 
 .fun- {
   &header-nav {
-    height: 3.5rem;
+    height: auto;
 
     ul {
       list-style: none;
+      padding-left: 0;
+
+      li {
+        word-wrap: break-word;
+      }
 
       a:link,
       a:active,
       a:visited {
         color: $white;
-        padding: 1rem 2rem;
+        padding: 1rem 1.5rem;
         display: block;
         text-decoration: none;
         transition: $funTransition;
@@ -101,16 +124,17 @@ footer {
         position: absolute;
         left: 0;
         min-width: 20rem;
+        box-shadow: 2px 4px 9px 0px rgba($black, 0.75);
       }
     }
   }
 
   &mobile-toggler {
     font-size: 2rem;
+    padding: 1rem;
 
     i {
       cursor: pointer;
-      padding: 0 1rem;
     }
   }
 
@@ -211,4 +235,46 @@ footer {
       }
     }
   }
+}
+
+.comments-area {
+  h2 {
+    margin-bottom: 1rem;
+  }
+  .comment-list {
+    margin-bottom: 2rem;
+
+    li {
+      margin-bottom: 2rem;
+    }
+  }
+  .comment-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+}
+
+#breadcrumbs {
+  padding-left: 0 !important;
+}
+
+.fun-snippet.mb-3.mb-lg-4 {
+  ul,
+  ol {
+    padding-left: 3rem !important;
+  }
+}
+
+.widget {
+  list-style-type: none;
+}
+
+.fun-logo-section a {
+  text-decoration: underline solid transparent;
+  transition: $funTransition;
+}
+
+.fun-logo-section a:hover {
+  text-decoration: underline solid $primary;
 }
